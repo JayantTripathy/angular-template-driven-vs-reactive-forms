@@ -1,0 +1,55 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>
+      Template Driven Form
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="card">
+      <div class="card-body">
+        <div class="row justify-content-sm-center">
+            <form #templateDrivenForm="ngForm" (ngSubmit)="handleFormSubmit(templateDrivenForm)">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-md-3"><label>Name</label></div>
+                  <div class="col-md-9">
+                    <input class="form-control" placeholder="Provide your name" type="text" autocomplete="off" ngModel name="name" required type="text" />
+                    <span class="text-danger" *ngIf="templateDrivenForm.controls['name']?.invalid && templateDrivenForm.controls['name'].dirty">
+                      Name is required
+                   </span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <div class="row">
+                  <div class="col-md-3"> <label>Email Address</label></div>
+                  <div class="col-md-9">
+                    <input class="form-control" placeholder="Provide your email address"  autocomplete="off" ngModel name="emailAddress"  required type="email"/>
+                    <span class="text-danger" *ngIf="templateDrivenForm.controls['emailAddress']?.invalid && templateDrivenForm.controls['emailAddress'].dirty">
+                      Email is required
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <div class="row">
+                  <div class="col-md-3"><label>Age</label></div>
+                  <div class="col-md-9">
+                    <input class="form-control" placeholder="Provide your age" autocomplete="off" ngModel name="age" required type="number"  />
+                    <span class="text-danger" *ngIf="templateDrivenForm.controls['age']?.invalid && templateDrivenForm.controls['age'].dirty">
+                      Age is required
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group mt-3 col-md-12" style="text-align: center;">
+                  <button type="submit" class="btn btn-primary" style="width: 200px" [disabled]="templateDrivenForm.invalid">
+                    Submit
+                  </button>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

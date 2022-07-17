@@ -1,0 +1,61 @@
+<mat-card class="example-card">
+  <mat-card-header>
+      <mat-card-title>
+        Reactive Forms
+      </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+<div class="card">
+  <div class="card-body">
+    <div class="row justify-content-sm-center">
+      <div class="col-sm">
+        <form [formGroup]="myreactiveForm" (ngSubmit)="handleSubmit()">
+          <div class="form-group">
+
+            <div class="row">
+              <div class="col-md-3"><label>Name</label></div>
+              <div class="col-md-9">
+                <input class="form-control" placeholder="Provide your name" type="text" formControlName="name" autocomplete="off" />
+                <span class="text-danger" *ngIf="myreactiveForm.get('name')?.invalid && myreactiveForm.get('name')?.touched">
+                  Name is invalid
+                </span>
+              </div>
+            </div>
+
+            <div class="row mt-3">
+              <div class="col-md-3"><label>Email Address</label></div>
+              <div class="col-md-9">
+                <input class="form-control" placeholder="Provide your email address" required type="email"
+                  formControlName="emailAddress" autocomplete="off"/>
+                <span class="text-danger"
+                  *ngIf="myreactiveForm.get('emailAddress')?.invalid  && myreactiveForm.get('emailAddress')?.touched">
+                  Email is invalid
+                </span>
+              </div>
+            </div>
+
+            <div class="row mt-3">
+              <div class="col-md-3"><label>Age</label></div>
+              <div class="col-md-9">
+                <input class="form-control" placeholder="Provide your age" type="number" formControlName="age" autocomplete="off"/>
+                <span class="text-danger" *ngIf="myreactiveForm.get('age')?.invalid  && myreactiveForm.get('age')?.touched">
+                  Age is invalid
+                </span>
+              </div>
+            </div>
+            <div class="form-group">
+              <div style="margin-top: 10px;">
+                <button type="submit" class="btn btn-primary" style="margin-left: auto; width: 30%; text-align: center;margin-left: 125px;width: 200px;"
+                  [disabled]="myreactiveForm.invalid">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+  </mat-card-content>
+</mat-card>
